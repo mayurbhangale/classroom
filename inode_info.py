@@ -16,6 +16,11 @@ print "Block size is %d " %sta.st_blksize
 
 print "File Permissions: "
 
-subprocess.call(["ls", "-l", name])
-os.system("ls -l" name)
+#subprocess.call(["ls", "-l", name])
+o = oct(stat.S_IMODE(os.lstat(name).st_mode))
+
+i= oct(stat.S_IMODE(os.lstat(name).st_mode))[-1:]
+print o,i
+
+
 os.close(fd)
